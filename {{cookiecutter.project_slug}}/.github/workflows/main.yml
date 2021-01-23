@@ -1,0 +1,26 @@
+name: main
+on: [push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        python_version: [3.6, 3.7]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Python {% raw %}${{ matrix.python_version }}{% endraw %}
+      uses: actions/setup-python@v1
+      with:
+        python-version: {% raw %}${{ matrix.python_version }}{% endraw %}
+    - name: Setup Nox
+      run: |
+        pip install --upgrade pip
+        pip install nox
+    - name: Lint
+      run: |
+        nox -s lint
+    - name: Test
+      run: |
+        nox -s test-{% raw %}${{ matrix.python_version }}{% endraw %}

@@ -1,0 +1,23 @@
+# general
+build/
+dist/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# environments
+.env
+.venv
+env
+venv
+.nox
+
+# testing
+.coverage
+
+# other
+.idea
+.vscode

@@ -1,0 +1,10 @@
+{
+  "full_name": "Eric Matti",
+  "github_username": "e-k-m",
+  "project_name": "batsay",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Like cowsay but with a bat.",
+  "version": "0.1.0",
+  "command_line_interface": "y",
+  "github_actions": "y"
+}
